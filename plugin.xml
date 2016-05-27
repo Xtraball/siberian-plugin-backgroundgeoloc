@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="siberian-plugin-backgroundgeoloc"
+        version="1.0.0">
+
+    <name>BackgroundGeoloc</name>
+    <description>Background Geolocation service.</description>
+    <license>Siberian CMS</license>
+    <keywords>cordova,background geolocation</keywords>
+
+    <js-module src="src/www/BackgroundGeoloc.js" name="BackgroundGeoloc">
+        <clobbers target="window.BackgroundGeoloc" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BackgroundGeoloc" >
+                <param name="android-package" value="com.appsmobilecompany.base.CDVBackgroundGeoloc"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/CDVBackgroundGeoloc.java" target-dir="src/com/appsmobilecompany/base" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BackgroundGeoloc">
+                <param name="ios-package" value="CDVBackgroundGeoloc" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVBackgroundGeoloc.h" />
+        <source-file src="src/ios/CDVBackgroundGeoloc.m" />
+    </platform>
+</plugin>

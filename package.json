@@ -1,0 +1,11 @@
+{
+  "name": "siberian-plugin-backgroundgeoloc",
+  "version": "1.0",
+  "description": "Siberian Background geolocation",
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}
