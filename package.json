@@ -4,8 +4,7 @@
   "description": "Siberian Background geolocation",
   "cordova": {
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ]
   }
 }

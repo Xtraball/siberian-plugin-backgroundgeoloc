@@ -1,4 +1,4 @@
-package dev.siberiancms.www.appoverview;
+package com.appsmobilecompany.base;
 
 import android.content.Context;
 import android.location.Location;
@@ -25,7 +25,7 @@ public class CDVBackgroundGeoloc extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        Log.e(TAG, "execute: " + action);
+        Log.i(TAG, "execute: " + action);
         JSONObject jsonResult;
 
         if (action.equals("getCurrentPosition")) {
@@ -52,7 +52,7 @@ public class CDVBackgroundGeoloc extends CordovaPlugin {
 
     private void startBackgroundLocation(Context pContext, CallbackContext pCallbackContext) {
         if(locationManager == null) {
-            Log.e(TAG, "Starting Background Location");
+            Log.i(TAG, "Starting Background Location");
             backgroundGeolocListener = new BackgroundGeolocListener(pCallbackContext);
             locationManager = (LocationManager) pContext.getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(
@@ -65,7 +65,7 @@ public class CDVBackgroundGeoloc extends CordovaPlugin {
     }
 
     private void stopBackgroundLocation() {
-        Log.e(TAG, "Stopping Background Location");
+        Log.i(TAG, "Stopping Background Location");
         locationManager.removeUpdates(backgroundGeolocListener);
         locationManager = null;
     }
@@ -89,10 +89,10 @@ public class CDVBackgroundGeoloc extends CordovaPlugin {
         }
 
         if (0 < GPSLocationTime - NetLocationTime) {
-            Log.e(TAG, "Located by GPS");
+            Log.i(TAG, "Located by GPS");
             current_location = locationGPS;
         } else {
-            Log.e(TAG, "Located by network");
+            Log.i(TAG, "Located by network");
             current_location = locationNet;
         }
 
@@ -120,7 +120,7 @@ public class CDVBackgroundGeoloc extends CordovaPlugin {
         }
 
         public void onLocationChanged(Location location) {
-            Log.e(TAG, "Location changed: " + location.toString());
+            Log.i(TAG, "Location changed: " + location.toString());
 
             JSONObject jsonResult = new JSONObject();
             try {

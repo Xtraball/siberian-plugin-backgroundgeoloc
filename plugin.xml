@@ -24,16 +24,4 @@
 
         <source-file src="src/android/CDVBackgroundGeoloc.java" target-dir="src/com/appsmobilecompany/base" />
     </platform>
-
-    <!-- ios -->
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="BackgroundGeoloc">
-                <param name="ios-package" value="CDVBackgroundGeoloc" />
-            </feature>
-        </config-file>
-
-        <header-file src="src/ios/CDVBackgroundGeoloc.h" />
-        <source-file src="src/ios/CDVBackgroundGeoloc.m" />
-    </platform>
 </plugin>
